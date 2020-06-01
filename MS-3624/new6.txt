@@ -1,0 +1,26 @@
+public CosmicMADSClinicalDisplayQuestionAndAnswerWidgetPage step_my_overview_list_elements_is_visible_in_collapsed_questions_and_answers_widget() throws FrameworkException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        test_step_initiation();
+        waitFor(15);
+        int row_count = scope(mainScope).list(qaWidget_listView).getItemCount();
+        for (int i = 0; i<row_count; i++) {
+            Object item = scope(mainScope).list(qaWidget_listView).selectItem(row_count).isEnabled();
+            in=getProperty().toString()
+            verifyEquals(item, true, "Row is visible");
+            log.info("Row is visible");
+        }
+        return this;
+    }
+	
+	 public CosmicMADSClinicalDisplayQuestionAndAnswerWidgetPage step_my_overview_list_elements_is_visible_in_collapsed_questions_and_answers_widget() throws FrameworkException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        test_step_initiation();
+        waitFor(15);
+        int row_count = scope(mainScope).list(qaWidget_listView).getItemCount();
+        for (int i = 0; i<row_count; i++) {
+            if(scope(mainScope).list(qaWidget_listView).selectItem(row_count).isEnabled()) {
+                verifyEquals(list(qaWidget_listView).selectItem(row_count).toString(),"Questions & answers","row is visible");
+            }
+            else
+            log.info("Row is not visible");
+        }
+        return this;
+    }
